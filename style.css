@@ -8,14 +8,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     min-height: 100vh;
     background-color: #050505;
+    position: relative;
 }
 
-.pyramid {
+.shape-container {
     position: relative;
     width: 300px;
     height: 300px;
+    margin-bottom: 20px;
+}
+
+.shape {
+    width: 100%;
+    height: 100%;
     transform-style: preserve-3d;
     transform: rotateX(-30deg) rotateZ(45deg);
     animation: animate 4s linear infinite;
@@ -30,7 +38,7 @@ body {
     }
 }
 
-.pyramid__container {
+.shape__container {
     position: absolute;
     top: 0;
     left: 0;
@@ -39,42 +47,84 @@ body {
     transform-style: preserve-3d;
 }
 
-.pyramidOB {
+.shapeOB {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(#151515, #00ec00);
-    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
     transform-origin: bottom;
+    transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+}
+
+.pyramid .shapeOB {
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.shape-2 .shapeOB {
+    clip-path: none;
+}
+
+.cube .top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+    transform: rotateX(90deg) translateZ(150px);
+}
+
+.cube .shapeOB {
     transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
 }
 
 .glow {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: -400px;
     left: 0;
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     background-color: #0f0;
+    transform: rotateX(90deg);
     filter: blur(20px);
     box-shadow: 0 0 120px rgba(0, 255, 0, 0.2),
-        0 0 200px rgba(0, 255, 0, 0.4),
-        0 0 300px rgba(0, 255, 0, 0.6),
-        0 0 400px rgba(0, 255, 0, 0.8),
-        0 0 500px rgba(0, 255, 0, 1);
+                0 0 200px rgba(0, 255, 0, 0.4),
+                0 0 300px rgba(0, 255, 0, 0.6),
+                0 0 400px rgba(0, 255, 0, 0.8),
+                0 0 500px rgba(0, 255, 0, 1);
+}
+
+button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #00ec00;
+    color: #050505;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #00c900;
 }
 
 @media(max-width: 468px) {
-    .pyramid,
+    .shape-container,
     .glow {
         width: 100px;
         height: 100px;
     }
 
-    .pyramidOB {
+    .shapeOB,
+    .cube .top {
         transform: rotateY(calc(90deg * var(--i))) translateZ(50px);
     }
 }
