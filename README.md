@@ -5,8 +5,12 @@
 
 Messing around with css :)
 
+## how to -
+
+clone the repo and run index.html
+
 ## Preview
-![preview](./assets/preview.png)
+![preview](./assets/Pasted image.png)
 
 
 
