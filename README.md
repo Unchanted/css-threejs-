@@ -10,7 +10,7 @@ Messing around with css :)
 clone the repo and run index.html
 
 ## Preview
-![preview](./assets/Pasted image.png)
+![Pasted image](https://github.com/user-attachments/assets/8265bdc3-cbf8-4da4-a2ab-9d6f037f0309)
 
 
 
